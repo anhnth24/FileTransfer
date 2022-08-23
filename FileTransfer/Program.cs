@@ -14,17 +14,17 @@ namespace FileTransfer
         /// </summary>
         static void Main()
         {
-    //#if DEBUG
-            Service s = new Service();
-            s.OnDebug();
-    //#else
-            //ServiceBase[] ServicesToRun;
-            //ServicesToRun = new ServiceBase[]
-            //{
-            //    new Service()
-            //};
-            //ServiceBase.Run(ServicesToRun);
-    //#endif
+            //#if DEBUG
+            //Service s = new Service();
+            //s.OnDebug();
+            //#else
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new Service()
+            };
+            ServiceBase.Run(ServicesToRun);
+            //#endif
         }
     }
 }

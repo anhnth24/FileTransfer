@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Configuration;
 using System.ServiceProcess;
 using System.Timers;
 
@@ -8,7 +9,7 @@ namespace FileTransfer
     public partial class Service : ServiceBase
     {
         private static Timer _timer;
-        const int TIME_RESTART = 6000;
+        private static readonly int TIME_RESTART = int.Parse(ConfigurationManager.AppSettings["TimeRestart"].ToString());
         public Service()
         {
             InitializeComponent();
@@ -17,6 +18,7 @@ namespace FileTransfer
         public void OnDebug()
         {
             ServiceFileTransfer.SendFile();
+            ServiceFileTransfer.DownFile();
         }
 
         protected override void OnStart(string[] args)
@@ -34,6 +36,7 @@ namespace FileTransfer
             try
             {
                 ServiceFileTransfer.SendFile();
+                ServiceFileTransfer.DownFile();
             }
             catch (Exception)
             {
