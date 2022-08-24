@@ -17,8 +17,10 @@ namespace FileTransfer
 
         public void OnDebug()
         {
-            ServiceFileTransfer.SendFile();
-            ServiceFileTransfer.DownFile();
+            ServiceFileTransfer.SendFileUpload();
+            ServiceFileTransfer.DownFileUpload();
+            ServiceFileTransfer.SendFileTemplate();
+            ServiceFileTransfer.DownFileTemplate();
         }
 
         protected override void OnStart(string[] args)
@@ -35,8 +37,10 @@ namespace FileTransfer
         {
             try
             {
-                ServiceFileTransfer.SendFile();
-                ServiceFileTransfer.DownFile();
+                ServiceFileTransfer.SendFileUpload();
+                ServiceFileTransfer.DownFileUpload();
+                ServiceFileTransfer.SendFileTemplate();
+                ServiceFileTransfer.DownFileTemplate();
             }
             catch (Exception)
             {
